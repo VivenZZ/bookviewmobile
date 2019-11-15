@@ -4,7 +4,7 @@ const pxtorem = require('postcss-pxtorem')
 module.exports = ({ file }) => {
   let rootValue
   if (file && file.dirname && file.dirname.indexOf('vant') > -1) {
-    rootValue = 42
+    rootValue = 36
   } else {
     rootValue = 75
   }
