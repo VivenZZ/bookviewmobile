@@ -38,6 +38,9 @@
 </template>
 
 <style lang="less">
+  body{
+    background-color: #f6f7f9;
+  }
   .van-tabs__nav--card{
     margin: 0 2rem !important;
   }
