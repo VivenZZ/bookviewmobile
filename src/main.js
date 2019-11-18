@@ -5,7 +5,7 @@ import router from './router'
 import store from './store'
 import  'lib-flexible'
 import './mock/mock'
-import {Rate, Tag, Image, Divider, Skeleton, Icon, Lazyload, Swipe, SwipeItem, Row, Col, Tab, Tabs, Search , TreeSelect, Tabbar, TabbarItem, Button, Cell, CellGroup } from "vant"
+import { Sidebar, SidebarItem, List, PullRefresh, Rate, Tag, Image, Divider, Skeleton, Icon, Lazyload, Swipe, SwipeItem, Row, Col, Tab, Tabs, Search , TreeSelect, Tabbar, TabbarItem, Button, Cell, CellGroup } from "vant"
 Vue.use(Button)
     .use(Cell)
     .use(CellGroup)
@@ -25,7 +25,11 @@ Vue.use(Button)
     .use(Divider)
     .use(Image)
     .use(Tag)
-    .use(Rate);
+    .use(Rate)
+    .use(PullRefresh)
+    .use(List)
+    .use(Sidebar)
+    .use(SidebarItem);
 Vue.config.productionTip = false
 
 new Vue({

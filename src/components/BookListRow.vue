@@ -1,6 +1,6 @@
 <template>
   <div class="BookListRow">
-    <van-cell class="list-title" :title="title.name" :icon="title.icon" is-link :url="title.url" value="更多"/>
+    <van-cell v-if="title == {}" class="list-title" :title="title.name" :icon="title.icon" is-link :url="title.url" value="更多"/>
     <div class="list-box" v-for="(item, index) in data_list" :key="index" >
       <div class="list">
         <router-link to="/" class="img_box">

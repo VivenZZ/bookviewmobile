@@ -1,17 +1,19 @@
 <template>
-  <van-row id="home">
-    <van-swipe class="home_banner" :autoplay="3000">
-      <van-swipe-item v-for="(image, index) in images" :key="index">
-        <img v-lazy="image" />
-      </van-swipe-item>
-    </van-swipe>
-    <book-list-column :title="recommendTitle" :data_list="recommendData" :isLoad="isRecommendLoad"/>
-    <book-list-row :title="rankTitle"  :data_list="rankData" :isLoad="isRankLoad" />
-    <book-list-column :title="hotTitle" :data_list="hotData" :isLoad="isHotLoad"/>
-    <book-list-row :title="newTitle"  :data_list="newData" :isLoad="isNewLoad" />
-<!--    <book-list-row :data_list="hotData" :isLoad="isLoad" :title="title_01"/>-->
+  <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+    <van-row id="home">
+      <van-swipe class="home_banner" :autoplay="3000">
+        <van-swipe-item v-for="(image, index) in images" :key="index">
+          <img v-lazy="image" />
+        </van-swipe-item>
+      </van-swipe>
+      <book-list-column :title="recommendTitle" :data_list="recommendData" :isLoad="isRecommendLoad"/>
+      <book-list-row :title="rankTitle"  :data_list="rankData" :isLoad="isRankLoad" />
+      <book-list-column :title="hotTitle" :data_list="hotData" :isLoad="isHotLoad"/>
+      <book-list-row :title="newTitle"  :data_list="newData" :isLoad="isNewLoad" />
+      <!--    <book-list-row :data_list="hotData" :isLoad="isLoad" :title="title_01"/>-->
 
-  </van-row>
+    </van-row>
+  </van-pull-refresh>
 </template>
 
 <script>
@@ -25,6 +27,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       recommendTitle: {},
       recommendData: [],
       isRecommendLoad: true,
@@ -51,6 +54,17 @@ export default {
     this.getRankData()
   },
   methods: {
+    onRefresh () {
+      this.isRecommendLoad = true
+      this.isNewLoad = true
+      this.isHotLoad = true
+      this.isRankLoad = true
+      this.getRecommendData()
+      this.getHotData()
+      this.getWxData()
+      this.getRankData()
+      this.isLoading = false;
+    },
     async getRecommendData() {
      try {
        let res = await this.$axios.get('http://route.getRecommend.com/')
@@ -60,7 +74,7 @@ export default {
          icon: 'hot',
          url: '/tuj'
        }
-       this.isRecommendLoad = !this.isRecommendLoad
+       this.isRecommendLoad = false
      } catch (e) {
        console.log('请求出错！')
        console.log(e)
@@ -75,7 +89,7 @@ export default {
           icon: 'award',
           url: '/cxs'
         }
-        this.isHotLoad = !this.isHotLoad
+        this.isHotLoad = false
       } catch (e) {
         console.log('请求出错！')
         console.log(e)
@@ -90,7 +104,7 @@ export default {
           icon: 'new',
           url: '/cxs'
         }
-        this.isNewLoad = !this.isNewLoad
+        this.isNewLoad = false
       } catch (e) {
         console.log('请求出错！')
         console.log(e)
@@ -105,7 +119,7 @@ export default {
           icon: 'column',
           url: '/cxs'
         }
-        this.isRankLoad = !this.isRankLoad
+        this.isRankLoad = false
       } catch (e) {
         console.log('请求出错！')
         console.log(e)

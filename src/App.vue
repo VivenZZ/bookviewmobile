@@ -41,7 +41,7 @@
   body{
     background-color: #f6f7f9;
   }
-  .van-tabs__nav--card{
-    margin: 0 2rem !important;
+  .van-tab{
+    padding: 0 30px;
   }
 </style>
