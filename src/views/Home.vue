@@ -15,8 +15,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
 import BookListRow from "../components/BookListRow";
 import BookListColumn from "../components/BookListColumn";
 export default {
