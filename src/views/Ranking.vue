@@ -1,7 +1,7 @@
 <template>
   <div id="Ranking">
-    <van-sidebar v-model="activeKey" @change="handleClick(activeKey)">
-      <van-sidebar-item   v-for="(item, index) in items" :key="index" :title="item.text" />
+    <van-sidebar v-model="activeKey">
+      <van-sidebar-item  @click="handleClick(index)"  v-for="(item, index) in items" :key="index" :title="item.text" />
     </van-sidebar>
     <div class="content">
       <van-tabs type="card" v-model="active"  @change="tabOnClick(active)" >
@@ -56,13 +56,16 @@
     },
     methods: {
       tabOnClick (index) {
+        this.isLoading = true
+        this.loading = true
         console.log(index)
         this.rankData = []
         this.onLoad()
       },
       handleClick: function(i) {
         // 此处调用ajax 获取对应的数据，或者进行排序~
-        console.log(i)
+        this.isLoading = true
+        this.loading = true
         if (this.activeKey !== i) {
           this.rankData = []
           this.onLoad()
@@ -74,7 +77,6 @@
         this.onLoad()
       },
       async onLoad() {
-        this.isLoading = false;
         try {
           let res = await this.$axios.get('http://route.getRank.com/')
           this.rankData = this.rankData.concat(res.data.data)
