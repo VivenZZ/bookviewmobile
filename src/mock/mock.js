@@ -15,6 +15,7 @@ var listData = function(num) {
             details: Random.cparagraph(),
             star: Random.integer(3, 5),
             url: Random.url(),
+            newCharpter: Random.cword(6, 10), // 最新章节
             date: Random.date() + ' ' + Random.time() //书籍更新时间 Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd；Random.time() 返回一个随机的时间字符串
         }
         data.push(newList)

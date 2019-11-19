@@ -1,20 +1,21 @@
 <template>
   <div id="mine">
     <!-- 居中 -->
-    <van-tabs class="mine-nav" type="card">
-      <van-tab title="我的书架">
-        <not-login />
-      </van-tab>
-      <van-tab title="最近阅读">内容 2</van-tab>
+    <van-tabs class="tabs" type="card">
+      <van-tab title="我的书架"></van-tab>
+      <van-tab title="最近阅读"></van-tab>
     </van-tabs>
+    <div class="bookShelf_content">
+      <book-shelf />
+    </div>
   </div>
 </template>
 <script>
-  import NotLogin from "../components/NotLogin";
+  import BookShelf from "../components/BookShelf";
   export default {
     name: 'mine',
     components: {
-      NotLogin
+      BookShelf
     },
     data() {
       return {
@@ -30,8 +31,26 @@
 </script>
 <style lang="less" scoped>
   #mine{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 104px;
+    .tabs{
+      background-color: white;
+      padding: 50px 0 ;
+    }
     .mine-nav{
-      margin-top: 40px;
+      margin: 40px 0;
+    }
+    .bookShelf_content{
+      flex: 1;
+      display: flex;
+    }
+    .van-tabs{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
     }
   }
 </style>

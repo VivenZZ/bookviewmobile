@@ -108,8 +108,6 @@
       left: 0;
       flex: 1;
       background-color: #F8F7F2;
-      .van-sidebar-item{
-      }
     }
     .van-sidebar-item{
       padding: 20px 0;

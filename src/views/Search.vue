@@ -12,10 +12,10 @@
     </van-search>
     <div class="tags" v-if="tagsBoolean">
       <div class="tag" @click="chioceTag(index)" v-for="(item, index) in searchMoreValue" :key="index">
-        <van-tag v-if="index%4 == 0" plain type="primary">{{item}}</van-tag>
-        <van-tag v-if="index%4 == 1"  plain type="success">{{item}}</van-tag>
-        <van-tag v-if="index%4 == 2"  plain type="danger">{{item}}</van-tag>
-        <van-tag v-if="index%4 == 3"  plain type="warning">{{item}}</van-tag>
+        <van-tag v-if="index%4 == 0" round plain type="primary">{{item}}</van-tag>
+        <van-tag v-if="index%4 == 1"  round plain type="success">{{item}}</van-tag>
+        <van-tag v-if="index%4 == 2"  round plain type="danger">{{item}}</van-tag>
+        <van-tag v-if="index%4 == 3"  round plain type="warning">{{item}}</van-tag>
       </div>
     </div>
     <div v-else>
@@ -71,13 +71,16 @@
   }
 </script>
 <style lang="less" scoped>
-  .tags{
-    padding: 30px;
-    .tag{
-      margin: 20px 0;
-    }
-    .van-tag{
-      font-size: 30px;
+  #search{
+    padding-bottom: 104px;
+    .tags{
+      padding: 30px;
+      .tag{
+        margin: 20px 0;
+      }
+      .van-tag{
+        font-size: 30px;
+      }
     }
   }
 </style>
