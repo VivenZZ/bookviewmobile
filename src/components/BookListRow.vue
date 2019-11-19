@@ -12,7 +12,10 @@
         <van-skeleton v-if="isLoad" title :row="2"/>
         <div v-else>
           <div class="row01">
-            <h3>{{item.title}}</h3>
+            <div class="name">
+              <p>{{item.title}}</p>
+              <p v-if="sort">{{index+1}}</p>
+            </div>
             <van-rate
                     v-model="item.star"
                     :size="16"
@@ -21,6 +24,7 @@
                     void-icon="star"
                     void-color="#eee"
                     readonly
+                    allow-half
             />
           </div>
           <p class="details">{{item.details}}</p>
@@ -48,7 +52,8 @@ export default {
   props: {
     title: Object,
     data_list: Array,
-    isLoad: Boolean
+    isLoad: Boolean,
+    sort: Boolean
   },
   data () {
     return {
@@ -84,8 +89,20 @@ export default {
           display: flex;
           align-items: center;
           align-content: space-between;
-          h3{
+          .name{
             flex: 1;
+            display: flex;
+            font-size: 28px;
+            font-weight: bold;
+            p{
+              margin: 0;
+            }
+            p:first-child{
+              flex: 1;
+            }
+            p:last-child{
+              margin-right: 50px;
+            }
           }
           span{
             color: #c13b00;

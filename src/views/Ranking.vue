@@ -19,7 +19,7 @@
                   :key="item"
                   :title="item"
           />
-          <book-list-row :title="rankTitle"  :data_list="rankData" :isLoad="isRankLoad" />
+          <book-list-row :sort="true" :title="rankTitle"  :data_list="rankData" :isLoad="isRankLoad" />
         </van-list>
       </van-pull-refresh>
     </div>
@@ -98,16 +98,25 @@
   #Ranking{
     display: flex;
     .van-sidebar{
-      flex: 1;
+      padding-top: 104px;
+      width: 100px;
       height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      flex: 1;
       background-color: #F8F7F2;
+      .van-sidebar-item{
+      }
     }
     .van-sidebar-item{
-      padding: 20px;
+      padding: 20px 0;
+      text-align: center;
     }
     .content{
       flex: 4;
       padding-top: 84px;
+      padding-left: 100px;
       padding-bottom: 104px;
     }
     .van-tabs{
