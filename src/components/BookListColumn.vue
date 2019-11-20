@@ -3,13 +3,13 @@
     <van-cell class="list-title" :title="title.name" :icon="title.icon"/>
     <swiper class="list" :options="swiperOption">
       <swiper-slide v-for="(item, index) in data_list" :key="index">
-        <router-link :to="item.url" class="book_box">
+        <router-link to="" class="book_box">
           <van-image
                   lazy-load
-                  :src="item.imgSrc"
+                  :src="`http://localhost:3000${item.imgPath}`"
           />
-          <h3>{{item.title}}</h3>
-          <p>{{item.author_name}}</p>
+          <h3>{{item.name}}</h3>
+          <p>{{item.Author}}</p>
         </router-link>
       </swiper-slide>
     </swiper>

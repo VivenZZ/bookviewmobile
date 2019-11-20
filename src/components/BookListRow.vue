@@ -6,14 +6,14 @@
         <router-link to="/" class="img_box">
           <van-image
                   lazy-load
-                  :src="item.imgSrc"
+                  :src="`http://localhost:3000${item.imgPath}`"
           />
         </router-link>
         <van-skeleton v-if="isLoad" title :row="2"/>
         <div v-else>
           <div class="row01">
             <div class="name">
-              <p>{{item.title}}</p>
+              <p>{{item.name}}</p>
               <p v-if="sort">{{index+1}}</p>
             </div>
             <van-rate
@@ -27,16 +27,16 @@
                     allow-half
             />
           </div>
-          <p class="details">{{item.details}}</p>
+          <p class="details">{{item.description}}</p>
           <div class="row02">
             <p>
               <van-icon name="user-o" />
-              <span>{{item.author_name}}</span>
+              <span>{{item.Author}}</span>
             </p>
             <p>
-              <van-tag plain type="default">{{item.category}}</van-tag>
+              <van-tag plain type="default">{{item.novelclass}}</van-tag>
               <van-tag plain type="danger">{{item.status}}</van-tag>
-              <van-tag plain type="primary">{{item.word_number}}万字</van-tag>
+              <van-tag plain type="primary">{{item.numbers}}字</van-tag>
             </p>
           </div>
         </div>

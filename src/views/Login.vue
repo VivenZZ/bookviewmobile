@@ -6,7 +6,7 @@
             :src="require('../assets/login.png')"
     />
     <div class="login_box">
-      <van-image
+      <van-image class="logoImage"
                  width="2rem"
                  height="2rem"
                  :src="require('../assets/logo.png')"
@@ -32,6 +32,7 @@
                 required
         />
       </van-cell-group>
+      <van-button class="loginBtn" round type="warning" size="large">登录</van-button>
     </div>
   </div>
 </template>
@@ -67,6 +68,14 @@
       align-items: center;
       padding: 0 50px;
       box-sizing: border-box;
+      .logoImage{
+        margin:200px 0 100px;
+      }
+    }
+    .loginBtn{
+      margin-top: 88px;
+      height: 80px;
+      line-height: 80px;
     }
   }
 </style>

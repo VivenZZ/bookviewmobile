@@ -67,8 +67,8 @@ export default {
     },
     async getRecommendData() {
      try {
-       let res = await this.$axios.get('http://route.getRecommend.com/')
-       this.recommendData = res.data.data
+       let res = await this.$axios.get('http://localhost:3000/api/books')
+       this.recommendData = res.data.books
        this.recommendTitle = {
          name: '主编推荐',
          icon: 'hot',
@@ -82,8 +82,8 @@ export default {
     },
     async getHotData() {
       try {
-        let res = await this.$axios.get('http://route.getHot.com/')
-        this.hotData = res.data.data
+        let res = await this.$axios.get('http://localhost:3000/api/books')
+        this.hotData = res.data.books
         this.hotTitle =  {
           name: '畅销书本',
           icon: 'award',
@@ -97,8 +97,8 @@ export default {
     },
     async getWxData() {
       try {
-        let res = await this.$axios.get('http://route.getNew.com/')
-        this.newData = res.data.data
+        let res = await this.$axios.get('http://localhost:3000/api/books')
+        this.newData = res.data.books
         this.newTitle = {
           name: '最新上架',
           icon: 'new',
@@ -112,8 +112,9 @@ export default {
     },
     async getRankData() {
       try {
-        let res = await this.$axios.get('http://route.getRank.com/')
-        this.rankData = res.data.data
+        let res = await this.$axios.get('http://localhost:3000/api/books')
+        console.log(res)
+        this.rankData = res.data.books
         this.rankTitle = {
           name: '排行榜',
           icon: 'column',

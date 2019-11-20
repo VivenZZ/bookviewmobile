@@ -44,4 +44,7 @@
   .van-tab{
     padding: 0 30px;
   }
+  .van-field__label{
+    width: 100px !important;
+  }
 </style>
