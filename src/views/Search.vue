@@ -8,6 +8,7 @@
             shape="round"
             @search="onSearch"
     >
+      <div class="label" slot="label" @click="onSearchClass">{{searchClass}}<van-icon name="arrow-down" /></div>
       <div slot="action" @click="onSearch">搜索</div>
     </van-search>
     <div class="tags" v-if="tagsBoolean">
@@ -32,6 +33,7 @@
     },
     data() {
       return {
+        searchClass: '作者',
         value: '',
         typeValue: '',
         searchMoreValue: [
@@ -51,6 +53,14 @@
       onSearch: function () {
         console.log(this.value)
         this.onLoad()
+      },
+      onSearchClass: function() {
+        console.log(1111)
+        if (this.searchClass == '作者') {
+          this.searchClass = '书名'
+        } else {
+          this.searchClass = '作者'
+        }
       },
       chioceTag: function (i) {
         this.value = this.searchMoreValue[i]
@@ -73,6 +83,13 @@
 <style lang="less" scoped>
   #search{
     padding-bottom: 104px;
+    .label{
+      display: flex;
+      align-items: center;
+      i{
+        margin:0 5px;
+      }
+    }
     .tags{
       padding: 30px;
       .tag{

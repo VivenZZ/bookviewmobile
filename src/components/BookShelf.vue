@@ -1,7 +1,7 @@
 <template>
   <div id="BookShelf">
     <div class="notLogged" v-if="!loggedIn">
-      <van-tag mark  type="danger">去登录</van-tag>
+      <router-link to="/login"><van-tag mark  type="danger">去登录</van-tag></router-link>
       <p>登录享受云端同步功能</p>
     </div>
     <book-list-shelf v-else  :data_list="rankData" :isLoad="isRankLoad" />
@@ -15,9 +15,11 @@ export default {
   components: {
     BookListShelf
   },
+  props:{
+    loggedIn: Boolean
+  },
   data () {
     return {
-      loggedIn: false,
       rankTitle: {},
       rankData: [],
       isRankLoad: true

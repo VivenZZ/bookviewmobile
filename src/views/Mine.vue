@@ -1,12 +1,12 @@
 <template>
   <div id="mine">
     <!-- 居中 -->
-    <van-tabs class="tabs" type="card">
+    <van-tabs class="tabs" type="card" @change="onChange">
       <van-tab title="我的书架"></van-tab>
       <van-tab title="最近阅读"></van-tab>
     </van-tabs>
     <div class="bookShelf_content">
-      <book-shelf />
+      <book-shelf :loggedIn="loggedIn"/>
     </div>
   </div>
 </template>
@@ -19,12 +19,17 @@
     },
     data() {
       return {
-        value: ''
+        value: '',
+        loggedIn: false
       }
     },
     methods: {
-      onSearch: function () {
-        console.log(this.value)
+      onChange: function (e) {
+        if (e == 0) {
+          this.loggedIn = false
+        } else {
+          this.loggedIn = true
+        }
       }
     }
   }
